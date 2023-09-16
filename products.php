@@ -26,7 +26,7 @@ require("includes/common.php");
             <hr>
             
             <?php $j=3; ?>
-         <div class="row text-center" id="cameras">
+            <div class="row text-center" id="cameras">
                 <?php
                 $query="select * from items";
                 $result= mysqli_query($con, $query);
@@ -34,48 +34,57 @@ require("includes/common.php");
                     while ($row2 = mysqli_fetch_array($result)) {
                 ?>
                 <div class="col-md-3 col-sm-6 home-feature">
-                    <div class="thumbnail">
-                        <?php $i=$row2['id'];  
+                    <div class="card shadow-sm">
+                        <a href="picture.php"> 
+                        <?php 
+                       $i=$row2['id'];  
                         echo '<a href="picture.php?id='.$i.'" name="view" value="view">';
-                           $n=$row2['name'];
-                           $q="select * from items where name='$n'";
-                           if($res= mysqli_query($con, $q))
-                           {
-                               while ($row1 = mysqli_fetch_array($res)) {
-                                   echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['images'] ).'" />';
-                                   $j--;
-                               }
-                           }
+                       $n=$row2['name'];
+                       $q="select * from items where name='$n'";
+                       if($res= mysqli_query($con, $q)){
+                            while ($row1 = mysqli_fetch_array($res)) {
+                        ?>
+                        <img src="<?php echo $row1['images']; ?>" width="100" height="150">
+                        
+                        <?php
+                            $j--;
+                            }
+                        }
                            
                         ?>
-                           </a>
-                        <div class="caption">
+
+                        </a>
+                        <div class="card-text">
                             
-                            <h3><?php $select="select * from items where name='$n'";
-                                 $result1= mysqli_query($con, $select);
+                            <h3>
+                            <?php 
+                                $select="select * from items where name='$n'";
+                                $result1= mysqli_query($con, $select);
         
                                 while($row = mysqli_fetch_array($result1)) {
                                     echo $row['name'];
-                              ?> </h3>
+                            ?>
+                            </h3>
                             <p>
-                                <?php
+                            <?php
                                 echo 'Rs.'.$row['price'].'<br>';
                                 echo $row['description'];
                                 }
+                                $i=$row2['id'];
                             ?> 
                                 </p>
                             <?php if (!isset($_SESSION['email'])) { ?>
                                 <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p>
-                                <?php
+                            <?php
                             } else {
                                
                             $i=$row2['id'];
-                                //We have created a function to check whether this particular product is added to cart or not.
+                                // We have created a function to check whether this particular product is added to cart or not.
                                 if (check_if_added_to_cart($i)) { //This is same as if(check_if_added_to_cart != 0)
                                     echo '<a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>';
                                 } else {
-                                   $i=$row2['id'];
-                                   echo '<a href="cart-add.php?id='.$i.'" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>';
+                                  $i=$row2['id'];
+                                  echo '<a href="cart-add.php?id='.$i.'" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a>';
                                    
                                 }
                             }
@@ -98,7 +107,7 @@ require("includes/common.php");
                             ?>
 
        
-
+        </br> </br>
         <?php include("includes/footer.php"); ?>
     </body>
 
