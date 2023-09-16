@@ -63,6 +63,6 @@ mysqli_close($con);
 </table>
 </div>	
 </div></div>
-<?php include("includes/js.php"); ?>
+// <?php include("includes/js.php"); ?>
 </body>
 </html>
