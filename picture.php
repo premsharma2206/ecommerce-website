@@ -21,7 +21,7 @@ require("includes/common.php");
 
         <div class="row text-center" id="cameras">
          <div class="col-md-3 col-sm-6 home-feature">
-             <a href="products.php">view all products</a>  <br> <br>
+             <a href="products.php">Back</a>  <br> <br>
              <div class="thumbnail">
             <?php 
             if (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -30,7 +30,7 @@ require("includes/common.php");
                            if($res= mysqli_query($con, $q))
                            {
                                 while ($row1 = mysqli_fetch_array($res)) {
-                                   echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['images'] ).'" />';
+                                   echo '<img src="'.$row1['images'].'" width="500" height="500">';
                                }
                            }
                            

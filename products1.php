@@ -24,9 +24,10 @@ require("includes/common.php");
 
             </div>
             <hr>
-            <a href="addproducts.php">Add products.</a>
+            <button><a href="add_product.php">Access Admin Console</a></button>
+            </br> </br>
             <?php $j=3; ?>
-         <div class="row text-center" id="cameras">
+            <div class="row text-center" id="cameras">
                 <?php
                 $query="select * from items";
                 $result= mysqli_query($con, $query);
@@ -44,12 +45,14 @@ require("includes/common.php");
                            if($res= mysqli_query($con, $q))
                            {
                                while ($row1 = mysqli_fetch_array($res)) {
-                                   echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['images'] ).'" />';
+                            ?>
+                                   <img src="<?php echo $row1['images']; ?>" width="100" height="100">
+                            <?php
                                    $j--;
                                }
                            }
                            
-                        ?>
+                            ?>
                            </a>
                         <div class="caption">
                             
@@ -71,11 +74,11 @@ require("includes/common.php");
                             echo '<a href="edit.php?id='.$i.'" class="btn btn-primary">Edit</a> &nbsp &nbsp';
                              echo '<a href="remove.php?id='.$i.'" class="btn btn-primary">Remove</a>';
                             if($j<=0){
-                                   echo '</div>';
-                                   echo '</div>';
-                                   echo '</div>';
-                                    echo '</div>';
-                                echo '<div class="row text-center" id="cameras">';
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</div>';
+            echo '<div class="row text-center" id="cameras">';
                                 $j=3;
                             }
                             else {

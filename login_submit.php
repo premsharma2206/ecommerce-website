@@ -19,7 +19,7 @@ if ($num == 0) {
   $row = mysqli_fetch_array($result);
   $_SESSION['email'] = $row['email'];
   $_SESSION['user_id'] = $row['id'];
-   if($_SESSION['email']=="premsharma2299@gmail.com")
+   if($_SESSION['email']=="mayursharmaj8@gmail.com")
         header('location: products1.php');
     else {
         header('location: products.php');

@@ -3,7 +3,7 @@ require("includes/common.php");
 
 // Redirects the user to products page if he/she is logged in.
 if (isset($_SESSION['email'])) {
-    if(!strcmp($_SESSION['email'],"premsharma2299@gmail.com"))
+    if(!strcmp($_SESSION['email'],"mayursharmaj8@gmail.com"))
     {
         header('location: products1.php');
     }
@@ -26,6 +26,15 @@ if (isset($_SESSION['email'])) {
         <script src="js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
+        <style>
+            #banner_image {
+                    padding-bottom: 50px;
+                    text-align: center;
+                    color: #f8f8f8;
+                    background: url(img/intro-bg_1_.jpg) no-repeat center center;
+                    background-size: cover;
+                }
+        </style>
     </head>
     <body style="padding-top: 50px;">
         <!-- Header -->
