@@ -16,7 +16,7 @@ $tags = $_POST['tags'];
 // $tags=$_POST['tags'];
 $filename = $_FILES["picture"]["name"];
 $image = $_FILES["picture"]["tmp_name"];
-$folder = "img/".$filename;
+$folder = "img";
 //picture coding
 $query="insert into items(name,price,description,images,product_type,tags) values ('$product_name',$price,'$details','$folder','$product_type','$tags')";	
 mysqli_query($con, $query);
