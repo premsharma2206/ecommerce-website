@@ -7,10 +7,10 @@
    $mail->Host = 'smtp.hostinger.com';
    $mail->Port = 587;
    $mail->SMTPAuth = true;
-   $mail->Username = 'premsharma@bhawaniemporium.com';
+   $mail->Username = 'premsharma@bhawaniemporiumhandicrafts.com';
    $mail->Password = 'Prem@1014219';
-   $mail->setFrom('premsharma@bhawaniemporium.com', 'Prem Sharma');
-   $mail->addReplyTo('premsharma@bhawaniemporium.com', 'Prem Sharma');
+   $mail->setFrom('premsharma@bhawaniemporiumhandicrafts.com', 'Prem Sharma');
+   $mail->addReplyTo('premsharma@bhawaniemporiumhandicrafts.com', 'Prem Sharma');
    $mail->addAddress('premsharma0699@gmail.com', 'Sharma');
    $mail->Subject = 'Checking if PHPMailer works';
    $mail->msgHTML(file_get_contents('message.html'), __DIR__);
